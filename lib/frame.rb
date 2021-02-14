@@ -7,8 +7,6 @@ class Frame
     @rolls = 0 
     @total_pins = 10
     @knocked_pins = 0
-    @spare_bonus = false 
-    @strike = false 
   end 
 
   def roll
@@ -20,15 +18,6 @@ class Frame
     @knocked_pins += pins_down
     @total_pins -= pins_down
 
-    if pins_down == 10 
-      @strike = true 
-      return 'strike'
-    end 
-  end 
-
-  def spare 
-    if @strike == false 
-      @total_pins == 0 ? @spare_bonus = true : @spare_bonus = false 
-    end 
-  end 
+    pins_down 
+  end
 end
