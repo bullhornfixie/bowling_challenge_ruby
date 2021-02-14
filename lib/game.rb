@@ -28,7 +28,7 @@ class Game
       self.bonus_log(roll1, roll2)
 
       puts @score_card << {"frame_num"=>@frame_count, "roll1"=>roll1, "roll2" => roll2, 
-                           "knocked_pins"=>frame.knocked_pins, "score"=> score, "spare" => @spare}        
+                           "score"=> score, "spare" => @spare}        
     end
   end
 
