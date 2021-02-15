@@ -12,7 +12,7 @@ describe Game do
   end
 
   describe '.spare' do 
-    it 'checks if a frame results in a spare bonus and changes spare_bonus to true' do 
+    it 'sets spare_bonus instance variable to true when remaining pins are knocked down on roll 2' do 
       frame = kingpin.spare(2, 8)
       expect(frame).to eq true 
     end

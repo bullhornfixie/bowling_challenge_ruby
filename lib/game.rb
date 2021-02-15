@@ -7,11 +7,11 @@ class Game
   end
 
   def start
-    while @frame_count != 1
+    while @frame_count != 6
       roll1 = self.roll
       roll2 = self.roll unless roll1 == 10
       self.score(roll1, roll2, @spare_bonus)
-      self.spare(roll1, roll2)
+      self.spare(roll1, roll2) 
       @frame_count +=1
       self.end 
     end
@@ -22,13 +22,18 @@ class Game
     pins_down = gets.chomp.to_i 
   end
   
-  def score(roll1, roll2=0, spare_bonus)
-    roll1 = roll1 * 2 unless spare == false 
-    @total_score += (roll1 + roll2)
-  end
-
   def spare(roll1, roll2)
-    roll1 != 10 && roll1 + roll2 == 10 ? @spare_bonus = true : @spare_bonus = false 
+    if (10 - (roll1 + roll2)) == 0 
+      @spare_bonus = true
+    else
+      @spare_bonus = false 
+    end
+  end
+  
+  def score(roll1, roll2, bonus)
+    roll1 = roll1 * 2 unless bonus == false 
+    roll2 = roll2 == nil ? roll2 = 0 : roll2
+    @total_score += (roll1 + roll2)
   end
 
   def end 
@@ -36,5 +41,7 @@ class Game
   end
 end
 
+kingpin = Game.new
+kingpin.start
 
 
